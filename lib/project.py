@@ -6,7 +6,7 @@ def enter_folder_project(project_name):
     os.chdir(project_name)
 
 def get_project_name(repo):
-    return os.path.basename(repo)
+    return os.path.basename(repo).replace('.git','')
 
 
 def clone_project(project_name, repo):
