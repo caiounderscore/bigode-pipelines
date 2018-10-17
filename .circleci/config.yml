@@ -12,15 +12,25 @@ jobs:
     steps:
       - checkout
       - run: python3 -m py_compile bigode-pipelines.py
+  deploy:
+    docker:
+      - image: python:3.6
+    steps:
+      - run: echo "Deploy"
+
+
 workflows:
   version: 2
-  build_and_test:
+  build-test-and-approval-deploy:
     jobs:
       - build
+      - test:
+          requires:
+            - build
       - hold:
           type: approval
           requires:
-           - build
-      - test:
+           - test2
+      - deploy:
           requires:
             - hold
