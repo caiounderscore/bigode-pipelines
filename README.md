@@ -59,5 +59,5 @@ Assuming you wrote a python script named `pipeline.py` (You're free to give a na
 
 
 ```shell
-python pipeline.py release https://github.com/caiounderscore/bigode-pipelines
+python bigode-pipelines.py release https://github.com/caiounderscore/bigode-pipelines
 ```
